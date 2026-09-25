@@ -1,0 +1,14 @@
+[Unit]
+Description=TURZX USB panel
+After=default.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+EnvironmentFile=%h/.config/turzx/turzx.env
+ExecStart=/bin/sh -c 'exec /home/gabe/Documents/c-stuff/turzx/turzx $TURZX_ARGS'
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
